@@ -1,0 +1,40 @@
+---
+
+interface Props {
+  description: string;
+  title: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+
+  </head>
+  <body class="relative">
+	
+    <slot />
+  </body><style is:global>
+    :root {
+      color-scheme: light dark;
+    }
+    html {
+	  scroll-behavior: smooth;
+
+    }
+    
+
+    body {
+      background: #080B11;
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</html>
