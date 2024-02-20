@@ -2,19 +2,48 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 ---
-
 <Layout title="Corpus.uy" description='La mejor banda del planeta'>
     <section class="flex flex-col justify-center items-center min-h-screen bg-center bg-no-repeat bg-[url('/HD.webp')] bg-zinc-900/70 bg-blend-multiply bg-cover">
         <div class="px-4 text-center">
             <!-- Tarjeta con efecto glassmorphic -->
-            <div class="backdrop-filter backdrop-blur-lg bg-zinc-500/30 border border-gray-200 rounded-lg p-8 hover:bg-zinc-200/40 transition duration-300 ease-in-out">
+            <div id="audioControl" class="backdrop-filter backdrop-blur-lg bg-zinc-500/30 border border-gray-200 rounded-lg p-8 hover:bg-zinc-200/40 transition duration-300 ease-in-out cursor-pointer">
                 <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Sigan viendo.</h1>
             </div>
         </div>
     </section>
     <!-- Elemento audio para la canción de fondo -->
-    <audio autoplay loop>
-        <source src="/vaimaca.mp3" type="audio/mpeg">
+    <audio id="backgroundMusic" loop>
+        <source src="/sound.wav" type="audio/mpeg">
         Tu navegador no soporta el elemento de audio.
     </audio>
+    <script>
+        const audioControl = document.getElementById('audioControl');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+
+        // Inicialmente el audio está pausado
+        let isPlaying = false;
+
+if (audioControl) {
+	audioControl.addEventListener('click', () => {
+		if (backgroundMusic) {
+			const backgroundMusic = document.getElementById('backgroundMusic') as HTMLAudioElement;
+			isPlaying ? backgroundMusic.pause() : backgroundMusic.play();
+		}
+		isPlaying = !isPlaying; // Cambia el estado de reproducción
+	});
+}
+if (backgroundMusic) {
+	isPlaying ? (backgroundMusic as HTMLAudioElement).pause() : (backgroundMusic as HTMLAudioElement).play();
+}
+            isPlaying = !isPlaying; // Cambia el estado de reproducción
+    
+
+        // Asegurarse de que el audio comience en pausa
+        window.onload = () => {
+if (backgroundMusic) {
+	(backgroundMusic as HTMLAudioElement).pause();
+}
+            isPlaying = false;
+        };
+    </script>
 </Layout>
