@@ -1,0 +1,57 @@
+---
+
+import Layout from '../layouts/Layout.astro';
+import HeroIntegrantes from '../components/HeroIntegrantes.astro';
+---
+
+
+
+<Layout title="Corpus 💣🔥" description='La mejor banda del planeta'>
+    
+        <HeroIntegrantes />
+
+ 
+
+
+    <script>
+        const $boxers = document.querySelector("#boxers");
+        const $boxersImages = $boxers?.querySelectorAll("img");
+        
+        $boxersImages?.forEach(($img) => {
+        $img.addEventListener("mouseleave", () => {
+        $boxersImages.forEach(($img) => {
+        $img.style.filter = "none";
+        $img.style.transition = "all .3s ease-in-out";
+        $img.style.scale = "1";
+        });
+        
+        });
+        
+        $img.addEventListener("mouseenter", () => {
+        const sectionImages = $img.parentNode?.children;
+        const position = sectionImages ? [...sectionImages].indexOf($img) : -1;
+        
+        // get image for the left side and the right side
+        const [leftBoxer, rightBoxer] = [
+        $boxersImages[position], // de la izquierda
+        $boxersImages[position + $boxersImages.length / 2], // de la derecha
+        ];
+        
+        // ocultar los boxeadores que no interesan
+        $boxersImages.forEach(($img) => {
+        $img.style.filter = "blur(2px) grayscale(.8)";
+        $img.style.transition = "all .3s ease-in-out";
+        });
+        
+        leftBoxer.style.scale = "1.2";
+        leftBoxer.style.filter = "contrast(1.1)";
+        leftBoxer.style.transition = "all .3s ease-in-out";
+        
+        rightBoxer.style.scale = "1.2";
+        rightBoxer.style.filter = "contrast(1.1)";
+        rightBoxer.style.transition = "all .3s ease-in-out";
+        });
+        });
+        </script>
+</Layout>
+  
