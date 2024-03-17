@@ -1,30 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-import Guitar from '../components/icons/Guitar.astro';
 ---
 <Layout title="Corpus 💣🔥" description='La mejor banda del planeta'>
+
+
     <section class="flex flex-col justify-center items-center min-h-screen bg-center bg-no-repeat bg-[url('/HD.webp')] bg-zinc-900/70 bg-blend-multiply bg-cover">
-        <div class="px-4 text-center ">
+        <div class="px-4 text-center">
             <!-- Tarjeta con efecto glassmorphic -->
             <div id="audioControl" class="backdrop-filter backdrop-blur-lg bg-zinc-500/30 border border-gray-200 rounded-lg p-8 hover:bg-zinc-200/40 transition duration-300 ease-in-out cursor-pointer">
-                <h1 class=" text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Sigan viendo.</h1>
+                <h1 class="text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Sigan viendo.</h1>
             </div>
         </div>
-<!-- Elemento de video, inicialmente oculto -->
-
-<div class="video-container hidden mt-6">
-   
-      <iframe src="https://drive.google.com/file/d/1lyyDCMlO716i-nE0R2tBufTl-iO93tN4/preview" class="w-full" allow="autoplay" allowfullscreen></iframe>
-
-
-</div>
-
-  
-  <!-- Elemento que el usuario puede clickear para reproducir el video -->
-  <button id="playButton"><Guitar class="mt-6 size-16"/> </button>
-
     </section>
+
+
     <!-- Elemento audio para la canción de fondo -->
     <audio id="backgroundMusic" loop>
         <source src="/vaimaca.mp3" type="audio/mpeg">
@@ -32,59 +22,35 @@ import Guitar from '../components/icons/Guitar.astro';
     </audio>
 
 
+
+    <script>
+        const audioControl = document.getElementById('audioControl');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+
+        // Inicialmente el audio está pausado
+        let isPlaying = false;
+
+        if (audioControl) {
+            audioControl.addEventListener('click', () => {
+                if (backgroundMusic) {
+                    const backgroundMusic = document.getElementById('backgroundMusic') as HTMLAudioElement;
+                    isPlaying ? backgroundMusic.pause() : backgroundMusic.play();
+                }
+                isPlaying = !isPlaying; // Cambia el estado de reproducción
+            });
+        }
+        if (backgroundMusic) {
+            isPlaying ? (backgroundMusic as HTMLAudioElement).pause() : (backgroundMusic as HTMLAudioElement).play();
+        }
+                    isPlaying = !isPlaying; // Cambia el estado de reproducción
+            
+
+                // Asegurarse de que el audio comience en pausa
+                window.onload = () => {
+        if (backgroundMusic) {
+            (backgroundMusic as HTMLAudioElement).pause();
+        }
+                    isPlaying = false;
+                };
+    </script>
 </Layout>
-
-
-
-    
-<script>
-    const playButton = document.getElementById('playButton');
-    if (playButton) {
-        playButton.addEventListener('click', function () {
-            var video = document.getElementById('miVideo');
-            //obtenemos el div que contiene el video
-            var videoContainer = document.querySelector('.video-container');
-            if (videoContainer) {
-                // Hace el video visible (cambia la classe tailwindcss de hidden a block
-                videoContainer.classList.remove('hidden'); 
-                playButton.classList.add('hidden');
-
-            }
-            if (video) {
-                (video as HTMLVideoElement).play(); 
-            }       
-         });
-    }
-   
-
-
-    
-    const audioControl = document.getElementById('audioControl');
-    const backgroundMusic = document.getElementById('backgroundMusic');
-
-    // Inicialmente el audio está pausado
-    let isPlaying = false;
-
-if (audioControl) {
-audioControl.addEventListener('click', () => {
-    if (backgroundMusic) {
-        const backgroundMusic = document.getElementById('backgroundMusic') as HTMLAudioElement;
-        isPlaying ? backgroundMusic.pause() : backgroundMusic.play();
-    }
-    isPlaying = !isPlaying; // Cambia el estado de reproducción
-});
-}
-if (backgroundMusic) {
-isPlaying ? (backgroundMusic as HTMLAudioElement).pause() : (backgroundMusic as HTMLAudioElement).play();
-}
-        isPlaying = !isPlaying; // Cambia el estado de reproducción
-
-
-    // Asegurarse de que el audio comience en pausa
-    window.onload = () => {
-if (backgroundMusic) {
-(backgroundMusic as HTMLAudioElement).pause();
-}
-        isPlaying = false;
-    };
-</script>
