@@ -1,57 +1,79 @@
 ---
-
 import Layout from '../layouts/Layout.astro';
-import HeroIntegrantes from '../components/HeroIntegrantes.astro';
+import Card from '../components/Card.astro';
+import Guitar from '../components/icons/Guitar.astro';
+import HeroSection from '../components/HeroSection.astro';
+import AboutSection from '../components/AboutSection.astro';
+
 ---
-
-
-
 <Layout title="Corpus 💣🔥" description='La mejor banda del planeta'>
     
-        <HeroIntegrantes />
+    <HeroSection />
+    <AboutSection bg="bg-light bg-cover bg-center bg-no-repeat z-20" title1="¿QUIÉNES" title2="SOMOS?" description="Banda de rock formada el 28 de Noviembre del 2014 en la ciudad de Los Cerrillos, Canelones, Uruguay. Nuestras canciones rebozantes de energía son nuestra mejor excusa para subir a los escenarios y volarte la peluca. " imageSrc="/About.jpg" />
+    <AboutSection bg="bg-[url('/Esteban-bg.png')] bg-cover bg-center bg-no-repeat text-light z-10" title1="ESTEBAN" title2="TORRES" description="Banda de rock formada el 28 de Noviembre del 2014 en la ciudad de Los Cerrillos, Canelones, Uruguay. Nuestras canciones rebozantes de energía son nuestra mejor excusa para subir a los escenarios y volarte la peluca. " imageSrc="/Esteban-main.png" />
 
- 
-
-
-    <script>
-        const $boxers = document.querySelector("#boxers");
-        const $boxersImages = $boxers?.querySelectorAll("img");
-        
-        $boxersImages?.forEach(($img) => {
-        $img.addEventListener("mouseleave", () => {
-        $boxersImages.forEach(($img) => {
-        $img.style.filter = "none";
-        $img.style.transition = "all .3s ease-in-out";
-        $img.style.scale = "1";
-        });
-        
-        });
-        
-        $img.addEventListener("mouseenter", () => {
-        const sectionImages = $img.parentNode?.children;
-        const position = sectionImages ? [...sectionImages].indexOf($img) : -1;
-        
-        // get image for the left side and the right side
-        const [leftBoxer, rightBoxer] = [
-        $boxersImages[position], // de la izquierda
-        $boxersImages[position + $boxersImages.length / 2], // de la derecha
-        ];
-        
-        // ocultar los boxeadores que no interesan
-        $boxersImages.forEach(($img) => {
-        $img.style.filter = "blur(2px) grayscale(.8)";
-        $img.style.transition = "all .3s ease-in-out";
-        });
-        
-        leftBoxer.style.scale = "1.2";
-        leftBoxer.style.filter = "contrast(1.1)";
-        leftBoxer.style.transition = "all .3s ease-in-out";
-        
-        rightBoxer.style.scale = "1.2";
-        rightBoxer.style.filter = "contrast(1.1)";
-        rightBoxer.style.transition = "all .3s ease-in-out";
-        });
-        });
-        </script>
 </Layout>
+
+
+
+
+    
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const $integrantes = document.querySelector("#integrantes");
+      const $imageContainers = $integrantes?.querySelectorAll("div"); // Selecciona los contenedores de cada imagen
+  
+      $imageContainers?.forEach(($container, index) => {
+        const $img = $container.querySelector("img");
+  
+        // Evento mouseleave
+        if($img){
+            $img.addEventListener("mouseleave", () => {
+            $imageContainers.forEach(($container) => {
+                const $img = $container.querySelector("img");
+               if($img){
+                $img.style.filter = "none";
+                $img.style.transition = "all .3s ease-in-out";
+                $img.style.transform = "scale(1)";
+               }
+            });
+            });
+        
+        
+  
+            // Evento mouseenter
+            $img.addEventListener("mouseenter", () => {
+            const position = index; // La posición ya no depende de los nodos hermanos directos
+    
+            // get image for the left side and the right side
+            const leftBoxer = $imageContainers[position]?.querySelector("img");
+            // Suponiendo que querías hacer algo especial con la imagen a la derecha, ajusta esta lógica según sea necesario
+            const rightBoxer = $imageContainers[position]?.querySelector("img");
+    
+            // Aplicar efectos de desenfoque a todas las imágenes excepto a las seleccionadas
+            $imageContainers.forEach(($container) => {
+                const $img = $container.querySelector("img");
+                if($img){
+                    $img.style.filter = "blur(2px) grayscale(.8)";
+                    $img.style.transition = "all .3s ease-in-out";
+                }
+                
+            });
+    
+            // Restaurar y destacar las imágenes seleccionadas
+            if(leftBoxer) {
+                leftBoxer.style.transform = "scale(1.2)";
+                leftBoxer.style.filter = "contrast(1.1)";
+                leftBoxer.style.transition = "all .3s ease-in-out";
+            }
+            if(rightBoxer) {
+                rightBoxer.style.transform = "scale(1.2)";
+                rightBoxer.style.filter = "contrast(1.1)";
+                rightBoxer.style.transition = "all .3s ease-in-out";
+            }
+            });
+        }   
+      });
+    });
+  </script>
   

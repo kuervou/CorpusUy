@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import Guitar from '../components/icons/Guitar.astro';
+import HeroSection from '../components/HeroSection.astro';
+import BlackLine from '../components/icons/BlackLine.astro';
+import RedLine from '../components/icons/RedLine.astro';
+
+const {bg, title1, title2, description, imageSrc} = Astro.props;
+---
+
+<section class={` ${bg} flex flex-col justify-start items-center w-full h-screen min-h-screen  text-black`} id="QuienesSomos"> 
+
+    <div class="
+    items-center justify-center gap-y-0 h-1/3 md:h-1/2 w-full 
+    ">
+        <span class="
+        mt-4  sm:mt-14 ml-2 sm:ml-32  2xl:ml-2 flex flex-row items-center min-w-fit">
+           <BlackLine class="hidden lg:block md:w-40 2xl:w-96" />  <h1 class=" text-4xl sm:text-9xl 2xl:text-11xl font-semibold sm:font-bold z-10 tracking-tighter">{title1} </h1>
+        </span>
+
+
+        <span class="-mt-14 sm:-mt-32 mr-2 sm:mr-32 2xl:mr-2  flex flex-row items-center justify-end min-w-fit">
+             <h1 class="text-4xl sm:text-9xl 2xl:text-11xl font-semibold sm:font-bold text-primary z-10 tracking-tighter lg:mr-8">{title2} </h1><RedLine class="hidden lg:block md:w-40 2xl:w-96 " />
+         </span>
+        
+    </div>
+    <div class=" flex flex-col gap-y-8 xl:flex-row items-center justify-center h-1/2 w-full md:mb-28 md:pb-8 px-2 xl:pl-32 2xl:px-44 ">
+      
+            <img src={imageSrc} alt="Guitar" class="w-full h-3/4 md:w-auto md:h-full object-cover" />
+            <p class="mr-5 ml-5 xl:ml-12  font-medium text-xl md:text-3xl mb-8">
+                {description}
+
+            </p>
+            
+    </div>
+
+  </section>
