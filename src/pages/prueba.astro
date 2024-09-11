@@ -9,15 +9,51 @@ import AboutSection from '../components/AboutSection.astro';
 <Layout title="Corpus 💣🔥" description='La mejor banda del planeta'>
     
     <HeroSection />
-    <AboutSection bg="bg-light bg-cover bg-center bg-no-repeat z-20" title1="¿QUIÉNES" title2="SOMOS?" description="Banda de rock formada el 28 de Noviembre del 2014 en la ciudad de Los Cerrillos, Canelones, Uruguay. Nuestras canciones rebozantes de energía son nuestra mejor excusa para subir a los escenarios y volarte la peluca. " imageSrc="/About.jpg" />
+    <AboutSection bg="bg-light bg-cover bg-center bg-no-repeat z-20" title1="¿QUIÉNES" title2="SOMOS?" description="Banda de rock formada el 28 de Noviembre del 2014 en la ciudad de Los Cerrillos, Canelones, Uruguay. Mezclamos rock con todos los generos que nos gustan y esa es nuestra mejor excusa para subir a los escenarios a volarte la peluca. " imageSrc="/About.jpg" />
     <AboutSection bg="bg-[url('/Esteban-bg.png')] bg-cover bg-center bg-no-repeat text-light z-10" title1="ESTEBAN" title2="TORRES" description="Banda de rock formada el 28 de Noviembre del 2014 en la ciudad de Los Cerrillos, Canelones, Uruguay. Nuestras canciones rebozantes de energía son nuestra mejor excusa para subir a los escenarios y volarte la peluca. " imageSrc="/Esteban-main.png" />
 
 </Layout>
 
+<!-- Elemento audio para la canción de fondo -->
+<audio id="backgroundMusic" loop>
+    <source src="/vaimaca.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+</audio>
+
+<script>
+    const audioControl = document.getElementById('audioControl');
+    const backgroundMusic = document.getElementById('backgroundMusic');
+
+    // Inicialmente el audio está pausado
+    let isPlaying = false;
+
+    if (audioControl) {
+        audioControl.addEventListener('click', () => {
+            if (backgroundMusic) {
+                const backgroundMusic = document.getElementById('backgroundMusic') as HTMLAudioElement;
+                isPlaying ? backgroundMusic.pause() : backgroundMusic.play();
+            }
+            isPlaying = !isPlaying; // Cambia el estado de reproducción
+        });
+    }
+    if (backgroundMusic) {
+        isPlaying ? (backgroundMusic as HTMLAudioElement).pause() : (backgroundMusic as HTMLAudioElement).play();
+    }
+                isPlaying = !isPlaying; // Cambia el estado de reproducción
+        
+
+            // Asegurarse de que el audio comience en pausa
+            window.onload = () => {
+    if (backgroundMusic) {
+        (backgroundMusic as HTMLAudioElement).pause();
+    }
+                isPlaying = false;
+            };
+</script>
 
 
+<!-- 
 
-    
 <script>
     document.addEventListener("DOMContentLoaded", () => {
       const $integrantes = document.querySelector("#integrantes");
@@ -76,4 +112,7 @@ import AboutSection from '../components/AboutSection.astro';
       });
     });
   </script>
+
+-->
+    
   
