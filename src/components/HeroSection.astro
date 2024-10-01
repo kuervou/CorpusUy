@@ -6,8 +6,8 @@ import SeeMoreButton from './SeeMoreButton.astro'
 <section class="relative flex flex-col justify-center items-center h-screen text-light">
 
     <!-- Div de fondo con blur y escala de grises -->
-    <div class=`absolute top-0 left-0 w-full h-full  max-w-screen bg-cover bg-center bg-no-repeat bg-[url('/Hero-bg-mobile.png')]  blur-sm grayscale-75 filter -z-10`></div>
-    <!-- xl:bg-[url('/HD2.webp')] para cambiar el fondo -->
+    <div id="hero-background" class="absolute top-0 left-0 w-full h-full max-w-screen bg-contain sm:bg-cover bg-center bg-no-repeat bg-[url('images/Hero-bg-mobile.webp')] md:bg-[url('/images/Hero-bg.webp')] grayscale-50  transition-all duration-400 -z-10"></div>
+     
     <HeroTitle />
 
     <SeeMoreButton />
@@ -18,3 +18,15 @@ import SeeMoreButton from './SeeMoreButton.astro'
 
  </section>
 
+ <script>
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const blurValue = Math.min(scrollY / 100, 4); // Incrementa el blur hasta un máximo de 10px
+      const heroBackground = document.getElementById('hero-background');
+  
+      // Combina grayscale y blur en el mismo filtro
+      heroBackground!.style.filter = `grayscale(50%) blur(${blurValue}px)`;
+    });
+  </script>
+  
+  
