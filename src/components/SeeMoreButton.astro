@@ -1,48 +1,12 @@
 ---
 import Arrow from "./icons/Arrow.astro"
+
+const { targetSection } = Astro.props;
 ---
 
-<a id="audioControl" class="flex flex-col items-center justify-center hover:scale-110 transition-all duration-300 ease-in-out hover:shadow-custom" href="#Hola">
+<a class="flex flex-col items-center justify-center hover:scale-110 transition-all duration-300 ease-in-out hover:shadow-custom pb-8" href={targetSection}>
     <h5 class="font-antonio text-normal text-2xl">Saber más</h5>
     <Arrow class="w-8 h-8 mt-1" />
 </a>
 
 
-    <!-- Elemento audio para la canción de fondo -->
-    <audio id="backgroundMusic" loop>
-        <source src="/audio/vaimaca.mp3" type="audio/mpeg">
-        Tu navegador no soporta el elemento de audio.
-    </audio>
-
-
-
-    <script>
-        const audioControl = document.getElementById('audioControl');
-        const backgroundMusic = document.getElementById('backgroundMusic');
-
-        // Inicialmente el audio está pausado
-        let isPlaying = false;
-
-        if (audioControl) {
-            audioControl.addEventListener('click', () => {
-                if (backgroundMusic) {
-                    const backgroundMusic = document.getElementById('backgroundMusic') as HTMLAudioElement;
-                    isPlaying ? backgroundMusic.pause() : backgroundMusic.play();
-                }
-                isPlaying = !isPlaying; // Cambia el estado de reproducción
-            });
-        }
-        if (backgroundMusic) {
-            isPlaying ? (backgroundMusic as HTMLAudioElement).pause() : (backgroundMusic as HTMLAudioElement).play();
-        }
-                    isPlaying = !isPlaying; // Cambia el estado de reproducción
-            
-
-                // Asegurarse de que el audio comience en pausa
-                window.onload = () => {
-        if (backgroundMusic) {
-            (backgroundMusic as HTMLAudioElement).pause();
-        }
-                    isPlaying = false;
-                };
-    </script>

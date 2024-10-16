@@ -1,14 +1,20 @@
 ---
 import LogoHeader from './icons/LogoHeader.astro'
 import MainButton from './MainButton.astro'
+import SocialMedia from './SocialMedia.astro'
 ---
 
 <header class="absolute z-20 w-full " >
-        <div class="bg-transparent flex flex-row items-center pt-4 justify-center sm:justify-between h-16 px-4">
+        <div class="bg-secondary bg-opacity-40 flex flex-row items-center py-4 px-4 justify-center sm:justify-between ">
             <a href="/">
-                <LogoHeader class="h-14 w-fit" />
-              </a>
-            <MainButton class="h-10 w-32 text-white" >Contacto</MainButton>
+                <LogoHeader class="h-12 w-fit" />
+            </a>
+            <div class="hidden sm:flex">
+              <SocialMedia class="hidden sm:flex" />
+            </div>
+            
+              
+           
         </div>
         
         

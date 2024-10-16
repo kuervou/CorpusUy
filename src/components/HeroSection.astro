@@ -3,18 +3,15 @@ import AnimatedIntegrants from './AnimatedIntegrants.astro'
 import HeroTitle from './HeroTitle.astro'
 import SeeMoreButton from './SeeMoreButton.astro'
 ---
-<section class="relative flex flex-col justify-center items-center h-screen text-light">
+<section class="relative flex flex-col justify-center items-center h-screen text-light p-0 m-0">
 
     <!-- Div de fondo con blur y escala de grises -->
-    <div id="hero-background" class="absolute top-0 left-0 w-full h-full max-w-screen bg-contain sm:bg-cover bg-center bg-no-repeat bg-[url('/images/Hero-bg-mobile.webp')] md:bg-[url('/images/Hero-bg.webp')] grayscale-50  transition-all duration-400 -z-10"></div>
+    <div id="hero-background" class="absolute top-0 left-0 w-full h-full max-w-screen bg-cover bg-center bg-no-repeat bg-[url('/images/Hero-bg-mobile.webp')] sm:bg-[url('/images/Hero-bg.webp')] grayscale-50 transition-all duration-400 -z-10"></div>
      
     <HeroTitle />
-
-    <SeeMoreButton />
-
-    <!-- <AnimatedIntegrants /> --> <!-- Integrantes animados (Solo pantallas >xl) -->
-    
-    
+    <SeeMoreButton
+    targetSection="#QuienesSomos" 
+     />
 
  </section>
 

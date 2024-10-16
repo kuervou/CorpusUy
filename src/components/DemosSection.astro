@@ -1,12 +1,35 @@
 ---
-// DemosSection.astro
+// Recibimos las props (título y fuente de audio)
 const { title, audioSrc } = Astro.props;
 ---
 
-<section class="w-full flex flex-col items-center justify-center my-10 text-light" id="Hola">
-  <h2 class="text-4xl font-bold mb-4">{title}</h2>
-  <audio controls class="w-full max-w-md">
+<section class="w-full flex flex-col items-center justify-center my-8 px-4 md:px-0 text-light">
+  <h2 class="text-2xl md:text-3xl font-bold mb-4 text-center">
+    {title}
+  </h2>
+
+  <!-- Control de audio -->
+  <audio controls class="audio-player w-full max-w-md">
     <source src={audioSrc} type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
 </section>
+
+<script>
+  // Obtener todos los elementos de audio en la página
+  const audioPlayers = document.querySelectorAll('.audio-player');
+
+  // Añadir evento de "play" a cada uno
+  audioPlayers.forEach((player) => {
+    player.addEventListener('play', () => {
+      // Detener otros audios que se estén reproduciendo
+      audioPlayers.forEach((otherPlayer) => {
+        // Verificar que el otro elemento sea un HTMLAudioElement
+        if (otherPlayer instanceof HTMLAudioElement && otherPlayer !== player) {
+          otherPlayer.pause();
+          otherPlayer.currentTime = 0; // Opcional: reiniciar el audio al inicio
+        }
+      });
+    });
+  });
+</script>

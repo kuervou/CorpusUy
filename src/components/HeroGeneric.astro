@@ -1,0 +1,29 @@
+---
+const { style, title, subtitle, targetSection, text } = Astro.props; 
+import SeeMoreButton from './SeeMoreButton.astro';
+import HeroGenericTitle from './HeroGenericTitle.astro';
+---
+
+<section class={`${style} relative flex flex-col h-screen text-light p-4`}>
+  <!-- Div de fondo con blur y escala de grises -->
+  <div id="hero-background" class="absolute top-0 left-0 w-full h-full max-w-screen bg-cover bg-center bg-no-repeat bg-[url('/images/Hero-bg-mobile.webp')] sm:bg-[url('/images/Hero-bg.webp')] grayscale-50 transition-all duration-400 -z-10"></div>
+
+  <HeroGenericTitle title={title} subtitle={subtitle} text={text} />
+
+  {targetSection && (
+    <SeeMoreButton targetSection={targetSection} />
+  )}
+</section>
+
+
+
+<script>
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const blurValue = Math.min(scrollY / 100, 4); // Incrementa el blur hasta un máximo de 4px
+    const heroBackground = document.getElementById('hero-background');
+
+    // Combina grayscale y blur en el mismo filtro
+    heroBackground!.style.filter = `grayscale(50%) blur(${blurValue}px)`;
+  });
+</script>

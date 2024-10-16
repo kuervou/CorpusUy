@@ -5,13 +5,21 @@ import Guitar from '../components/icons/Guitar.astro';
 import HeroSection from '../components/HeroSection.astro';
 import AboutSection from '../components/AboutSection.astro';
 import TrayectorySection from '../components/TrayectorySection.astro';
+import HeroGeneric from '../components/HeroGeneric.astro';
 
 ---
 <Layout title="CORPUS - Trayectoria" description='Trayectoria de Corpus, banda de Rock de Los Cerrillos con una década en la movida'>
     
-    <HeroSection />
+    <HeroGeneric 
+        style="sm:justify-end xl:pb-12 2xl:pb-28 gap-32 sm:gap-0 md:gap-0"
+        title="EL CAMINO" 
+        text="Formada el 28 de noviembre de 2014 en Los Cerrillos, Canelones, Corpus es una banda de rock que busca un sonido en constante evolución, mezclando la energía del rock con influencias de estilos que van desde el metal moderno hasta piezas folklóricas."
+    />
+
+
     <TrayectorySection 
-    bg="bg-[url('/bg/Group-1.svg')] bg-no-repeat bg-start"  
+    bg="bg-[url('/bg/Group-1.svg')] bg-no-repeat bg-center"  
+    style="pb-36 pt-24 gap-20"
     title="GÉNESIS"
     description1="La actividad comenzó el 18 de Diciembre del 2014, debutando a pocos días de formar la banda con un show en vivo en el bar Intramuros, Montevideo. Dicha presentación fue el disparador para una temporada de toques en varios puntos de la zona metropolitana y la costa, recorriendo gran cantidad de locales." 
     description2="La primera carta de presentación del grupo fue forjada en 2015 en Coda Estudio, dando vida a nuestro primer demo. Este material significó la oportunidad de mostrar su potencial ante nuevo público y los gestores de fechas." 
@@ -34,9 +42,7 @@ import TrayectorySection from '../components/TrayectorySection.astro';
     bg="bg-[url('/bg/Group-3.svg')] bg-no-repeat bg-start"  
     title=""
     description1="La conclusión del material llevó a un nuevo período de actividades, dentro de los que destaca la gran cantidad de fechas, la participación en distintos concursos como Movistar bandas y Mi Banda en Antelfest, la realización del videoclip de Después del Fin, el paso por el ciclo Enfoque Regional, la presencia en festivales de la región y la realización de sus propios festivales de aniversario, destacando el #FESTIVALDECORPUS2K17." 
-    description2="Desde el 2018 al 2020, la banda se dedicó a la intensa búsqueda de expansión en sus horizontes creativos, entregándose al proceso compositivo y de grabación, dejando gran base de música para trabajar y muchos fonogramas que fueron creados pero nunca lanzados oficialmente."
     imageSrc1="/images/trayectoria-5.webp"
-    imageSrc2="/images/trayectoria-6.webp"
     youtubeSrc0="https://www.youtube.com/embed/-4PHGdeGi_8?si=2rz5IN91_vkHekK7"
     youtubeSrc1="https://www.youtube.com/embed/Jpa2nTkRdjs?si=bUbILx2bnRmnwQ-3"
      />
@@ -44,8 +50,10 @@ import TrayectorySection from '../components/TrayectorySection.astro';
      <TrayectorySection 
      bg="bg-[url('/bg/Group-4.svg')] bg-no-repeat bg-start"  
      title="REPOSO"
-     description1="Después de años de trabajo constante y crecimiento, Corpus ha atravesado una pausa significativa debido a varios factores. Sin embargo, a pesar de las dificultades, el espíritu de Corpus sigue más fuerte que nunca. Durante este tiempo, la banda ha invertido en la creación de un home studio completamente equipado. Este espacio no solo es una herramienta clave para su independencia creativa, sino también un símbolo del compromiso a largo plazo de la banda." 
-     imageSrc1="/images/trayectoria-7.webp"
+     description1="Desde el 2018 al 2020, la banda se dedicó a la intensa búsqueda de expansión en sus horizontes creativos, entregándose al proceso compositivo y de grabación, dejando gran base de música para trabajar y muchos fonogramas que fueron creados pero nunca lanzados oficialmente."
+     description2="Después de años de trabajo constante y crecimiento, Corpus ha atravesado una pausa significativa debido a varios factores. Sin embargo, a pesar de las dificultades, el espíritu de Corpus sigue más fuerte que nunca. Durante este tiempo, la banda ha invertido en la creación de un home studio completamente equipado. Este espacio no solo es una herramienta clave para su independencia creativa, sino también un símbolo del compromiso a largo plazo de la banda." 
+     imageSrc1="/images/trayectoria-6.webp"
+     imageSrc2="/images/trayectoria-7.webp"
       />
 
       <TrayectorySection 
@@ -55,10 +63,7 @@ import TrayectorySection from '../components/TrayectorySection.astro';
      imageSrc1="/images/trayectoria-8.webp"
       />
 
-      <TrayectorySection 
-     bg="bg-[url('/bg/Group-6.svg')] bg-no-repeat bg-bottom"  
-     title="CONTACTO"
-      />
+    
 
   
 </Layout>

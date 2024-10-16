@@ -1,9 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const { bg, title, description1, description2, imageSrc1, imageSrc2, youtubeSrc1, youtubeSrc2, youtubeSrc0 } = Astro.props;
+const { bg, style, title, description1, description2, imageSrc1, imageSrc2, youtubeSrc1, youtubeSrc2, youtubeSrc0 } = Astro.props;
 ---
 
-<section class={`${bg} flex flex-col justify-center items-center w-full min-h-screen text-white`} id="Hola" style="background-size: cover; background-repeat: no-repeat;">
+<section class={`${bg} ${style} flex flex-col justify-center items-center w-full min-h-screen text-white px-2 sm:px-24`} id="Hola" style="background-size: cover; background-repeat: no-repeat;">
     
     <!-- Condicional para el Título -->
     {title && (
@@ -24,7 +24,7 @@ const { bg, title, description1, description2, imageSrc1, imageSrc2, youtubeSrc1
     )}
 
     {youtubeSrc0 && (
-        <div class="w-full flex justify-center py-8 px-4 sm:px-12 md:px-24 xl:px-56">
+        <div class="w-full flex justify-center py-8 px-4 sm:px-12 md:px-32 xl:px-64">
         <!-- Contenedor que ajusta la proporción del iframe -->
         <div class="relative w-full" style="padding-bottom: 56.25%; height: 0; overflow: hidden;">
             <iframe class="absolute top-0 left-0 w-full h-full" src={youtubeSrc0} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -34,14 +34,14 @@ const { bg, title, description1, description2, imageSrc1, imageSrc2, youtubeSrc1
 
     <!-- Condicional para la primera imagen -->
     {imageSrc1 && (
-        <div class="w-full flex justify-center py-8 px-4 sm:px-12 md:px-24 xl:px-56">
+        <div class="w-full flex justify-center py-8 px-4 sm:px-12 md:px-32 xl:px-64">
             <img src={imageSrc1} alt="Primera imagen" class="w-full h-auto object-cover max-w-[calc(100%-10px)] md:max-w-[calc(100%-20px)] shadow-lg" />
         </div>
     )}
 
     <!-- Condicional para primer video de Youtube con el mismo ancho que las imagenes -->
     {youtubeSrc1 && (
-        <div class="w-full flex justify-center py-8 px-4 sm:px-12 md:px-24 xl:px-56">
+        <div class="w-full flex justify-center py-8 px-4 sm:px-12 md:px-32 xl:px-64">
           <!-- Contenedor que ajusta la proporción del iframe -->
           <div class="relative w-full" style="padding-bottom: 56.25%; height: 0; overflow: hidden;">
             <iframe class="absolute top-0 left-0 w-full h-full" src={youtubeSrc1} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -61,13 +61,13 @@ const { bg, title, description1, description2, imageSrc1, imageSrc2, youtubeSrc1
 
     <!-- Condicional para la segunda imagen -->
     {imageSrc2 && (
-        <div class="w-full flex justify-center py-8 px-4 sm:px-12 md:px-24 xl:px-56">
+        <div class="w-full flex justify-center py-8 px-4 sm:px-12 md:px-32 xl:px-64">
             <img src={imageSrc2} alt="Segunda imagen" class="w-full h-auto object-cover max-w-[calc(100%-10px)] md:max-w-[calc(100%-20px)] shadow-lg" />
         </div>
     )}
 
     {youtubeSrc2 && (
-        <div class="w-full flex justify-center py-8 px-4 sm:px-12 md:px-24 xl:px-56">
+        <div class="w-full flex justify-center py-8 px-4 sm:px-12 md:px-32 xl:px-64">
         <!-- Contenedor que ajusta la proporción del iframe -->
         <div class="relative w-full" style="padding-bottom: 56.25%; height: 0; overflow: hidden;">
             <iframe class="absolute top-0 left-0 w-full h-full" src={youtubeSrc2} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

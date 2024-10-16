@@ -1,16 +1,25 @@
 ---
-// maquetas.astro
 import Layout from '../layouts/Layout.astro';
 import DemosSection from '../components/DemosSection.astro';
 import HeroSection from '../components/HeroSection.astro';
+import HeroGeneric from '../components/HeroGeneric.astro';
 ---
 
 <Layout title="CORPUS - Maquetas" description="Escucha nuestras maquetas en progreso">
-  <HeroSection />
-  
-  <h1 class="text-center text-5xl font-bold my-10">Maquetas</h1>
+  <HeroGeneric 
+  style="justify-end"
+  title="MAQUETAS" 
+  targetSection="#maquetas" 
+/>
 
-  <DemosSection title="Corpus Dispara" audioSrc="/audio/dispara.mp3" />
-  <DemosSection title="Antes del Principio" audioSrc="/audio/adp.mp3" />
-  <DemosSection title="Vaimaca Pirú" audioSrc="/audio/vaimaca-maqueta.mp3" />
+
+  <h1 class="text-center text-3xl md:text-5xl font-bold my-6 md:my-10">
+    Maquetas
+  </h1>
+
+  <div id="maquetas" class="flex flex-col gap-8 pb-16">
+    <DemosSection title="Corpus Dispara" audioSrc="/audio/dispara.mp3" />
+    <DemosSection title="Antes del Principio" audioSrc="/audio/adp.mp3" />
+    <DemosSection title="Vaimaca Pirú" audioSrc="/audio/vaimaca-maqueta.mp3" />
+  </div>
 </Layout>
