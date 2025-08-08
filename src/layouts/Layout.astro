@@ -16,6 +16,24 @@ interface Props {
 }
 
 const { title, description, canonical } = Astro.props;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  "name": "CORPUS",
+  "url": "https://corpus.uy",
+  "image": "https://corpus.uy/images/Hero-bg.webp",
+  "genre": "Rock alternativo",
+  "foundingDate": "2014-11-28",
+  "foundingLocation": "Los Cerrillos, Uruguay",
+  "sameAs": [
+    "https://www.instagram.com/corpus.uy/",
+    "https://www.youtube.com/@Corpusuy",
+    "https://open.spotify.com/intl-es/artist/42fuOGHadNohy4YEinUXEX",
+    "https://corpus.bandcamp.com/",
+    "https://www.facebook.com/corpus.uy/"
+  ]
+};
 ---
 
 <!doctype html>
@@ -44,25 +62,8 @@ const { title, description, canonical } = Astro.props;
   
     <link rel="icon" type="image/webp" href="/images/Cruz.webp" />
 
-    <script type="application/ld+json">
-      {JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "MusicGroup",
-        "name": "CORPUS",
-        "url": "https://corpus.uy",
-        "image": "https://corpus.uy/images/Hero-bg.webp",
-        "genre": "Rock alternativo",
-        "foundingDate": "2014-11-28",
-        "foundingLocation": "Los Cerrillos, Uruguay",
-        "sameAs": [
-          "https://www.instagram.com/corpus.uy/",
-          "https://www.youtube.com/@Corpusuy",
-          "https://open.spotify.com/intl-es/artist/42fuOGHadNohy4YEinUXEX",
-          "https://corpus.bandcamp.com/",
-          "https://www.facebook.com/corpus.uy/"
-        ]
-      })}
-    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+      
 
   </head>
 
