@@ -6,10 +6,13 @@ import HeroSection from '../components/HeroSection.astro';
 import AboutSection from '../components/AboutSection.astro';
 import TrayectorySection from '../components/TrayectorySection.astro';
 import HeroGeneric from '../components/HeroGeneric.astro';
+import Button from '../components/Button.astro';
 
 ---
-<Layout title="CORPUS - Trayectoria" description='Trayectoria de Corpus, banda de Rock de Los Cerrillos con una década en la movida'>
-    
+<Layout 
+  title="CORPUS - Trayectoria"
+  description="Conocé el recorrido musical de CORPUS, banda de rock uruguaya desde 2014 hasta hoy."
+  canonical="https://corpus.uy/trayectoria">
     <HeroGeneric 
         style="sm:justify-end xl:pb-12 2xl:pb-28 gap-32 sm:gap-0 md:gap-0"
         title="EL CAMINO" 
@@ -24,7 +27,9 @@ import HeroGeneric from '../components/HeroGeneric.astro';
     description1="La actividad comenzó el 18 de Diciembre del 2014, debutando a pocos días de formar la banda con un show en vivo en el bar Intramuros, Montevideo. Dicha presentación fue el disparador para una temporada de toques en varios puntos de la zona metropolitana y la costa, recorriendo gran cantidad de locales." 
     description2="La primera carta de presentación del grupo fue forjada en 2015 en Coda Estudio, dando vida a nuestro primer demo. Este material significó la oportunidad de mostrar su potencial ante nuevo público y los gestores de fechas." 
     imageSrc1="/images/trayectoria-1.webp"
-    imageSrc2="/images/trayectoria-2.webp" />
+    alt1="Imagen de la banda en su primer show en vivo"
+    imageSrc2="/images/trayectoria-2.webp"
+    alt2="Imagen de Ludwig en la grabación de nuestro primer material" />
 
     <TrayectorySection 
     bg="bg-[url('/bg/Group-2.svg')] bg-no-repeat bg-start"  
@@ -33,6 +38,8 @@ import HeroGeneric from '../components/HeroGeneric.astro';
     description2="Más tarde su último material sería extendido con el flamante La Paz Sea Contigo - Expansion Pack, registrado en BL Studio, de la ciudad de Pando. Dicho trabajo dio un cierre a la primer etapa sonora de la banda." 
     imageSrc1="/images/trayectoria-3.webp"
     imageSrc2="/images/trayectoria-4.webp" 
+    alt1="Imagen de la banda en el estudio Overhead durante la grabación de La Paz sea Contigo"
+    alt2="Imagen de la banda en el estudio BL durante la grabación de La Paz sea Contigo - Expansion Pack"
     youtubeSrc1="https://www.youtube.com/embed/QAi9sbaT1BI?si=ZO6zQCnX7SeS4L6-"
     youtubeSrc2="https://www.youtube.com/embed/_4aPSiVDjTU?si=O8f-TUaTLk8z5_ae"
     />
@@ -43,6 +50,7 @@ import HeroGeneric from '../components/HeroGeneric.astro';
     title=""
     description1="La conclusión del material llevó a un nuevo período de actividades, dentro de los que destaca la gran cantidad de fechas, la participación en distintos concursos como Movistar bandas y Mi Banda en Antelfest, la realización del videoclip de Después del Fin, el paso por el ciclo Enfoque Regional, la presencia en festivales de la región y la realización de sus propios festivales de aniversario, destacando el #FESTIVALDECORPUS2K17." 
     imageSrc1="/images/trayectoria-5.webp"
+    alt1="Imagenes de la banda 2017-2019"
     youtubeSrc0="https://www.youtube.com/embed/-4PHGdeGi_8?si=2rz5IN91_vkHekK7"
     youtubeSrc1="https://www.youtube.com/embed/Jpa2nTkRdjs?si=bUbILx2bnRmnwQ-3"
      />
@@ -53,7 +61,9 @@ import HeroGeneric from '../components/HeroGeneric.astro';
      description1="Desde el 2018 al 2020, la banda se dedicó a la intensa búsqueda de expansión en sus horizontes creativos, entregándose al proceso compositivo y de grabación, dejando gran base de música para trabajar y muchos fonogramas que fueron creados pero nunca lanzados oficialmente."
      description2="Después de años de trabajo constante y crecimiento, Corpus ha atravesado una pausa significativa debido a varios factores. Sin embargo, a pesar de las dificultades, el espíritu de Corpus sigue más fuerte que nunca. Durante este tiempo, la banda ha invertido en la creación de un home studio completamente equipado. Este espacio no solo es una herramienta clave para su independencia creativa, sino también un símbolo del compromiso a largo plazo de la banda." 
      imageSrc1="/images/trayectoria-6.webp"
+     alt1="Imagen de la banda en el estudio durante la pausa"
      imageSrc2="/images/trayectoria-7.webp"
+      alt2="Imagen de la banda en el estudio durante la pausa"
       />
 
       <TrayectorySection 
@@ -61,9 +71,17 @@ import HeroGeneric from '../components/HeroGeneric.astro';
      title="ACTUALIDAD"
      description1="Hoy, Corpus se encuentra en una etapa de reestructuración profunda. Este proceso va más allá de lo superficial: es una redefinición integral de su identidad sonora, visual y conceptual. Con una visión clara y un enfoque renovado, la banda está decidida a regresar con fuerza y asegurar que cada paso que den refleje todo lo que han aprendido y lo que desean expresar en esta nueva era de su música." 
      imageSrc1="/images/trayectoria-8.webp"
+      alt1="Imagen de la banda durante la reestructuración"
       />
 
-    
+      <section class="bg-secondary text-white text-center py-16 px-6 border-t border-neutral-800">
+        <p class="text-lg md:text-xl text-gray-300 font-light tracking-wide mb-6">
+          ¿Estás listo para lo que se viene?
+        </p>
+        <Button href="/" text="Volver al presente" variant="social" />
+      </section>
+      
+      
 
   
 </Layout>

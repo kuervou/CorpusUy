@@ -1,68 +1,37 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import HeroSection from '../components/HeroSection.astro';
-import AboutSection from '../components/AboutSection.astro';
-import MemberCard from '../components/MemberCard.astro';
+import Layout from "../layouts/Layout.astro";
+import HeroSection from "../components/HeroSection.astro";
+import AboutSection from "../components/AboutSection.astro";
+import IntegrantsSection from "../components/IntegrantsSection.astro";
+
 ---
 
-<Layout title="CORPUS" description="Banda de Rock de Los Cerrillos">
+<Layout title="CORPUS" description="Banda de rock uruguaya desde 2014 hasta hoy" canonical="" >
   <HeroSection />
-  <AboutSection 
-    bg="bg-light bg-cover bg-center bg-no-repeat z-20" 
-    title1="¿QUIÉNES" 
-    title2="SOMOS?" 
-    description="Banda de rock formada el 28 de Noviembre del 2014 en la ciudad de Los Cerrillos, Canelones, Uruguay. Mezclamos rock con varios de los generos que nos gustan y esa es nuestra mejor excusa para subir a los escenarios a volarte la peluca." 
-    imageSrc="/images/About2.webp" 
+  <AboutSection
+    bg="bg-light bg-cover bg-center bg-no-repeat z-20"
+    title1="¿ QUIÉNES"
+    title2="SOMOS ?"
+    id="QuienesSomos"
+    description="Banda de rock formada el 28 de Noviembre del 2014 en la ciudad de Los Cerrillos, Canelones, Uruguay. Mezclamos rock con varios de los generos que nos gustan y esa es nuestra mejor excusa para subir a los escenarios a volarte la peluca."
+    imageSrc="/images/About2.webp"
   />
 
-  <!-- Sección de Integrantes -->
-  <section class="w-full min-h-screen bg-gray-900 text-white pt-8 pb-16">
-    <h1 class="text-center text-4xl mb-8 font-bold">Integrantes</h1>
+  <IntegrantsSection />
 
-    <!-- Patxi Saralegui -->
-    <MemberCard 
-      nombre="Tabaré Calderón" 
-      rol="Voz"
-      imageVertical="/integrants/tabaV.webp"
-      imageHorizontal="/integrants/tabaH.webp"
-      stats={`
-        Cantante, llegó a la banda en 2025 y rápidamente se convirtió en nuestro
-        frontman. Su voz y carisma en el escenario son inigualables.
-      `}
-    />
 
-    <!-- Willy -->
-    <MemberCard 
-      nombre="Wilson Martínez" 
-      rol="Guitarra"
-      imageVertical="/integrants/willV.webp"
-      imageHorizontal="/integrants/willH.webp"
-      stats={`
-        Guitarrista principal, y nuestro cirujano en la producción musical. 
-      `}
-    />
+  <AboutSection 
+  bg="bg-light bg-cover bg-center bg-no-repeat z-20" 
+  title1="NUESTRA"
+  title2="TRAYECTORIA" 
+  description="Desde 2014, CORPUS recorre escenarios, estudios y procesos creativos. Somos una banda nacida en Los Cerrillos, Canelones, con un camino cargado de rock, identidad y una búsqueda sonora constante."
+  id="NuestraTrayectoria"
+  imageSrc="/images/About.webp"
+  button={{
+    text: "Conocé la historia completa",
+    href: "/trayectoria"
+  }} 
+/>
 
-    <!-- Cuervo -->
-    <MemberCard 
-      nombre="Hernán Cabara" 
-      rol="Bajo"
-      imageVertical="/integrants/cuervoV.webp"
-      imageHorizontal="/integrants/cuervoH.webp"
-      stats={`
-        Bajista de la banda. Antes de cada presentación, 
-        se dice que es poseído por el dios Corpus.
-      `}
-    />
-
-    <!-- Ludwig -->
-    <MemberCard 
-      nombre="Ludwig Van Velthoven" 
-      rol="Batería"
-      imageVertical="/integrants/ludV.webp"
-      imageHorizontal="/integrants/ludH.webp"
-      stats={`
-        Ludwig Van Velthoven, sigan viendo 😎. 
-      `}
-    />
-  </section>
+  
 </Layout>

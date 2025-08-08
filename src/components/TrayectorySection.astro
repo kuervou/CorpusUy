@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const { bg, style, title, description1, description2, imageSrc1, imageSrc2, youtubeSrc1, youtubeSrc2, youtubeSrc0 } = Astro.props;
+const { bg, style, title, description1, description2, imageSrc1, imageSrc2, youtubeSrc1, youtubeSrc2, youtubeSrc0, alt1, alt2 } = Astro.props;
 ---
 
 <section class={`${bg} ${style} flex flex-col justify-center items-center w-full min-h-screen text-white px-2 sm:px-24`} id="Hola" style="background-size: cover; background-repeat: no-repeat;">
@@ -8,9 +8,9 @@ const { bg, style, title, description1, description2, imageSrc1, imageSrc2, yout
     <!-- Condicional para el Título -->
     {title && (
         <div class="w-full flex flex-col items-center justify-center py-8 px-4 md:px-12 xl:px-24">
-            <h1 class="text-3xl sm:text-5xl md:text-6xl text-center font-bold">
+            <h2 class="text-3xl sm:text-5xl md:text-6xl text-center font-bold">
                 {title}
-            </h1>
+            </h2>
         </div>
     )}
 
@@ -35,7 +35,7 @@ const { bg, style, title, description1, description2, imageSrc1, imageSrc2, yout
     <!-- Condicional para la primera imagen -->
     {imageSrc1 && (
         <div class="w-full flex justify-center py-8 px-4 sm:px-12 md:px-32 xl:px-64">
-            <img src={imageSrc1} alt="Primera imagen" class="w-full h-auto object-cover max-w-[calc(100%-10px)] md:max-w-[calc(100%-20px)] shadow-lg" />
+            <img src={imageSrc1} alt={alt1} class="w-full h-auto object-cover max-w-[calc(100%-10px)] md:max-w-[calc(100%-20px)] shadow-lg" />
         </div>
     )}
 
@@ -62,7 +62,7 @@ const { bg, style, title, description1, description2, imageSrc1, imageSrc2, yout
     <!-- Condicional para la segunda imagen -->
     {imageSrc2 && (
         <div class="w-full flex justify-center py-8 px-4 sm:px-12 md:px-32 xl:px-64">
-            <img src={imageSrc2} alt="Segunda imagen" class="w-full h-auto object-cover max-w-[calc(100%-10px)] md:max-w-[calc(100%-20px)] shadow-lg" />
+            <img src={imageSrc2} alt={alt2} class="w-full h-auto object-cover max-w-[calc(100%-10px)] md:max-w-[calc(100%-20px)] shadow-lg" />
         </div>
     )}
 

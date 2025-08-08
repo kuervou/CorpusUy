@@ -1,0 +1,33 @@
+---
+const {
+  href = "#",
+  text = "Click aquí",
+  class: customClass = "",
+  variant = "Discreto", // Discreto | social | negro | claro
+} = Astro.props;
+
+let baseClasses = "relative inline-flex items-center justify-center px-6 py-3 rounded-full overflow-hidden transition duration-300 group";
+let variantClasses = "";
+
+if (variant === "Discreto") {
+  variantClasses = "bg-secondary/50 text-white";
+} else if (variant === "negro") {
+  variantClasses = "bg-black text-white";
+} else if (variant === "claro") {
+  variantClasses = "bg-white text-black border border-black";
+} else if (variant === "social") {
+  variantClasses = "border-2 border-accent text-accent bg-transparent";
+}
+
+const finalClass = `${baseClasses} ${variantClasses} ${customClass}`;
+---
+
+<a href={href} class={finalClass}>
+  {variant === "social" && (
+    <span class="absolute inset-0 bg-primary/15 opacity-0 group-hover:opacity-30 rounded-full blur-lg transition-opacity duration-300"></span>
+  )}
+
+  <span class="relative z-10 font-medium tracking-wide">
+    {text}
+  </span>
+</a>
