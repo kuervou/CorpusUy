@@ -4,11 +4,11 @@ const { nombre, rol, imageVertical, imageHorizontal, stats } = Astro.props;
 
 <div class="member-card">
   <!-- Vista móvil: imagen vertical con datos superpuestos -->
-  <div class="block md:hidden relative">
+  <div class="block md:hidden relative observer-target grayscale transition-all duration-700">
     <img
       src={imageVertical}
       alt={nombre}
-      class="w-full object-cover"
+      class="w-full object-cover aspect-[3/4]"
       loading="lazy"
     />
     <!-- Capa semi-transparente para resaltar el texto -->
@@ -23,13 +23,13 @@ const { nombre, rol, imageVertical, imageHorizontal, stats } = Astro.props;
     </div>
   </div>
 
-  <!-- Vista escritorio: imagen horizontal a pantalla completa con texto a la izquierda -->
-  <div class="hidden md:block relative w-full h-screen">
-    <!-- Imagen de fondo ocupando todo el contenedor -->
+ <!-- Vista escritorio: imagen horizontal a pantalla completa con texto a la izquierda -->
+<div class="hidden md:block relative w-full h-screen observer-target grayscale transition-all duration-700">
+  <!-- Imagen de fondo ocupando todo el contenedor -->
     <img
       src={imageHorizontal}
       alt={nombre}
-      class="absolute top-0 left-0 w-full h-full object-cover"
+      class="absolute top-0 left-0 w-full h-full object-cover aspect-[4/3]"
       loading="lazy"
     />
     <!-- Capa oscura (opcional) para mejorar legibilidad del texto -->

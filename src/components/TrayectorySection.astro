@@ -35,7 +35,7 @@ const { bg, style, title, description1, description2, imageSrc1, imageSrc2, yout
     <!-- Condicional para la primera imagen -->
     {imageSrc1 && (
         <div class="w-full flex justify-center py-8 px-4 sm:px-12 md:px-32 xl:px-64">
-            <img src={imageSrc1} alt={alt1} class="w-full h-auto object-cover max-w-[calc(100%-10px)] md:max-w-[calc(100%-20px)] shadow-lg " loading="lazy" />
+            <img src={imageSrc1} alt={alt1} class="w-full h-auto object-cover max-w-[calc(100%-10px)] md:max-w-[calc(100%-20px)] shadow-lg aspect-[4/3]" loading="lazy" />
         </div>
     )}
 
@@ -62,7 +62,7 @@ const { bg, style, title, description1, description2, imageSrc1, imageSrc2, yout
     <!-- Condicional para la segunda imagen -->
     {imageSrc2 && (
         <div class="w-full flex justify-center py-8 px-4 sm:px-12 md:px-32 xl:px-64">
-            <img src={imageSrc2} alt={alt2} class="w-full h-auto object-cover max-w-[calc(100%-10px)] md:max-w-[calc(100%-20px)] shadow-lg" loading="lazy"/>
+            <img src={imageSrc2} alt={alt2} class="w-full h-auto object-cover max-w-[calc(100%-10px)] md:max-w-[calc(100%-20px)] shadow-lg aspect-[4/3]" loading="lazy"/>
         </div>
     )}
 

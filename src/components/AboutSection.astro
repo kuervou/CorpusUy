@@ -7,7 +7,7 @@ import BlackLine from '../components/icons/BlackLine.astro';
 import RedLine from '../components/icons/RedLine.astro';
 import Button from './Button.astro';
 
-const { bg, title1, title2, description, imageSrc, button, id } = Astro.props;
+const { bg, title1, title2, description, imageSrc, aspect, button, id } = Astro.props;
 ---
 
 <section class={`${bg} flex flex-col justify-start items-center w-full min-h-screen text-black`} id={id}>
@@ -49,9 +49,10 @@ const { bg, title1, title2, description, imageSrc, button, id } = Astro.props;
     <img
       src={imageSrc}
       alt="Imagen de sección"
-      class="w-full max-w-md xl:max-w-none xl:w-1/2 h-auto object-cover grayscale-100 rounded-md"
+      class={`w-full max-w-md xl:max-w-none xl:w-1/2 h-auto object-cover grayscale-100 rounded-md shadow-lg aspect-[4/3] transition-all duration-300 hover:grayscale-0 `}
       loading="lazy"
       decoding="async"
     />
   </div>
 </section>
+

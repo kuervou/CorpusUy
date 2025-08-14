@@ -52,3 +52,25 @@ import MemberCard from "../components/MemberCard.astro";
       `}
     />
   </section>
+
+  <script is:inline>
+    if (typeof window !== 'undefined') {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const target = entry.target;
+          if (entry.isIntersecting) {
+            target.classList.remove('grayscale');
+          } else {
+            target.classList.add('grayscale');
+          }
+        });
+      }, {
+        threshold: 0.4
+      });
+  
+      document.querySelectorAll('.observer-target').forEach((el) => {
+        observer.observe(el);
+      });
+    }
+  </script>
+  
