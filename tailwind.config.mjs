@@ -6,10 +6,10 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-			  primary: '#DC2D45',
-			  secondary: '#262626',
-			  accent: '#a91616',
-			  light: '#E0DFDF'
+			  primary: '#E10600', //rojo
+			  secondary: '#262626', //negro
+			  accent: '#E10600', //rojo
+			  light: '#FAFAFA'
 			},
 			grayscale: {
 				25: '0.25',
