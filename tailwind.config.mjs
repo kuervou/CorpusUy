@@ -7,9 +7,10 @@ export default {
 		extend: {
 			colors: {
 			  primary: '#E10600', //rojo
-			  secondary: '#262626', //negro
-			  accent: '#E10600', //rojo
-			  light: '#FAFAFA'
+			  secondary: '#1B1B1B', //negro
+			  accent: '#CBEEF3', //celeste
+			  light: '#FAFAFA', //blanco
+			  dark: '#121212', //gris oscuro
 			},
 			grayscale: {
 				25: '0.25',
@@ -21,9 +22,8 @@ export default {
 				tightest: '-.075em',
 			  },
 
-			fontFamily: {
-				'oswald': ['"Oswald Variable"', 'sans-serif'],
-				'antonio': ['"Antonio Variable"', 'sans-serif'],
+			  fontFamily: {
+				clash: ['"Clash Display"', 'system-ui', 'sans-serif'],
 			  },
 		},
 		screens: {

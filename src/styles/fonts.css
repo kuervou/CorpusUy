@@ -1,0 +1,50 @@
+/* Clash Display – familia principal del sitio */
+
+@font-face {
+    font-family: "Clash Display";
+    src: url("/fonts/clash/CLASHDISPLAY-EXTRALIGHT.OTF") format("opentype");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Clash Display";
+    src: url("/fonts/clash/CLASHDISPLAY-LIGHT.OTF") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Clash Display";
+    src: url("/fonts/clash/CLASHDISPLAY-REGULAR.OTF") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Clash Display";
+    src: url("/fonts/clash/CLASHDISPLAY-MEDIUM.OTF") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Clash Display";
+    src: url("/fonts/clash/CLASHDISPLAY-SEMIBOLD.OTF") format("opentype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Clash Display";
+    src: url("/fonts/clash/CLASHDISPLAY-BOLD.OTF") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  

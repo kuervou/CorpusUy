@@ -16,11 +16,11 @@ const { bg, title1, title2, description, imageSrc, aspect, button, id } = Astro.
     
     <span class="mt-6 sm:mt-14 ml-4 sm:ml-32 2xl:ml-2 flex flex-row items-center">
       <BlackLine class="hidden lg:block md:w-40 2xl:w-96" />
-      <h2 class="text-5xl sm:text-7xl lg:text-8xl 2xl:text-9xl font-bold tracking-tight">{title1}</h1>
+      <h2 class="text-5xl sm:text-7xl lg:text-8xl 2xl:text-9xl font-semibold tracking-tight">{title1}</h1>
     </span>
 
     <span class="-mt-4 sm:-mt-12 mr-4 sm:mr-32 2xl:mr-2 flex flex-row items-center justify-end">
-      <h2 class="text-5xl sm:text-7xl lg:text-8xl 2xl:text-9xl font-bold text-primary tracking-tight lg:mr-8">{title2}</h1>
+      <h2 class="text-5xl sm:text-7xl lg:text-8xl 2xl:text-9xl font-semibold text-primary tracking-tight lg:mr-8">{title2}</h1>
       <RedLine class="hidden lg:block md:w-40 2xl:w-96" />
     </span>
   </div>
@@ -29,7 +29,7 @@ const { bg, title1, title2, description, imageSrc, aspect, button, id } = Astro.
   <div class="flex flex-col-reverse xl:flex-row items-center justify-center gap-8 w-full px-4 py-8 md:py-16 xl:px-32 2xl:px-44">
     
     <!-- Texto -->
-    <div class="w-full xl:w-1/2 text-center xl:text-left font-medium text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed">
+    <div class="w-full xl:w-1/2 text-center xl:text-left font-regular text-lg sm:text-xl md:text-2xl leading-relaxed">
       <p>{description
         .split('\n')
         .filter(Boolean) // evita párrafos vacíos si hay doble salto
@@ -40,7 +40,7 @@ const { bg, title1, title2, description, imageSrc, aspect, button, id } = Astro.
 
       {button && (
         <div class="mt-6">
-          <Button href={button.href} text={button.text} variant="social" />
+          <Button href={button.href} text={button.text} variant="primary" />
         </div>
       )}
     </div>
