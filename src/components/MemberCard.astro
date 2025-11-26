@@ -1,48 +1,79 @@
 ---
-const { nombre, rol, imageVertical, imageHorizontal, stats } = Astro.props;
+const { nombre, rol, imageVertical, imageHorizontal, stats, posicion } = Astro.props;
 ---
 
-<div class="member-card">
-  <!-- Vista móvil: imagen vertical con datos superpuestos -->
-  <div class="block md:hidden relative observer-target grayscale transition-all duration-700">
+<article class="member-card w-full">
+  <!-- MOBILE: imagen vertical -->
+  <div
+    class="relative block md:hidden overflow-hidden observer-target grayscale transition-all duration-[900ms] ease-out"
+  >
     <img
       src={imageVertical}
       alt={nombre}
-      class="w-full object-cover aspect-[3/4]"
       loading="lazy"
+      class="w-full h-full object-cover aspect-[3/4]"
     />
-    <!-- Capa semi-transparente para resaltar el texto -->
-    <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center">
-      <h2 class="text-white text-2xl font-bold">{nombre}</h2>
-      <p class="text-white text-lg">{rol}</p>
+
+    <!-- Gradiente: depende de si el texto va arriba o abajo -->
+    <div
+      class={
+        posicion === "abajo"
+          ? "absolute inset-x-0 bottom-0 w-full h-1/2 bg-gradient-to-t from-black/60 via-black/40 to-transparent"
+          : "absolute inset-x-0 top-0 w-full h-1/2 bg-gradient-to-b from-black/60 via-black/40 to-transparent"
+      }
+    ></div>
+
+    <!-- Texto arriba o abajo según 'posicion' -->
+    <div
+      class={
+        posicion === "abajo"
+          ? "absolute inset-x-0 bottom-0 p-5 flex flex-col gap-2"
+          : "absolute inset-x-0 top-0 p-5 flex flex-col gap-2"
+      }
+    >
+      <span class="text-[0.65rem] tracking-[0.3em] uppercase text-red-500">
+        {rol} · Corpus
+      </span>
+      <h2 class="text-2xl font-bold leading-tight">
+        {nombre}
+      </h2>
       {stats && (
-        <div class="mt-2 text-white">
+        <p class="mt-1 text-sm text-gray-200 leading-relaxed">
           {stats}
-        </div>
+        </p>
       )}
     </div>
   </div>
 
- <!-- Vista escritorio: imagen horizontal a pantalla completa con texto a la izquierda -->
-<div class="hidden md:block relative w-full h-screen observer-target grayscale transition-all duration-700">
-  <!-- Imagen de fondo ocupando todo el contenedor -->
+  <!-- DESKTOP: igual que antes, siempre centrado -->
+  <div
+    class="hidden md:block relative w-full min-h-screen overflow-hidden observer-target grayscale transition-all duration-[1200ms] ease-out"
+  >
     <img
       src={imageHorizontal}
       alt={nombre}
-      class="absolute top-0 left-0 w-full h-full object-cover aspect-[4/3]"
       loading="lazy"
+      class="absolute inset-0 w-full h-full object-cover"
     />
-    <!-- Capa oscura (opcional) para mejorar legibilidad del texto -->
-    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
-    <!-- Contenedor del texto -->
-    <div class="relative z-10 flex flex-col justify-center h-full ml-8 text-white max-w-xl">
-      <h2 class="text-4xl font-bold">{nombre}</h2>
-      <p class="text-2xl mb-4">{rol}</p>
-      {stats && (
-        <div class="mt-2">
-          {stats}
-        </div>
-      )}
+
+    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-transparent"></div>
+
+    <div class="absolute left-[8%] top-1/2 -translate-y-1/2 z-10">
+      <div class="max-w-xl border-l-4 border-red-600 pl-6 space-y-3">
+        <span class="text-xs tracking-[0.35em] uppercase text-red-500">
+          {rol}
+        </span>
+
+        <h2 class="text-4xl lg:text-5xl font-bold leading-tight">
+          {nombre}
+        </h2>
+
+        {stats && (
+          <p class="text-base lg:text-lg text-gray-100/90 leading-relaxed">
+            {stats}
+          </p>
+        )}
+      </div>
     </div>
   </div>
-</div>
+</article>
