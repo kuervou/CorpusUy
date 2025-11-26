@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Preloader from '../components/Preloader.astro';
 
 
 interface Props {
@@ -57,11 +58,17 @@ const structuredData = {
     <link rel="icon" type="image/webp" href="/images/Cruz.webp" />
 
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-      
+    <!-- Script del preloader, como módulo -->
+    <script
+    type="module"
+    src="../scripts/preloader.ts"
+  ></script>
 
   </head>
 
   <body class="m-0 p-0">
+
+    <Preloader />
     <Header />
     <slot />
     <Footer />
@@ -135,8 +142,68 @@ const structuredData = {
       font-family: "Clash Display", system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", sans-serif;
     }
+
+     /* === Animación de la cruz del preloader === */
+
+     @keyframes logo-pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.08);
+      }
+    }
+
+    .animate-logo-pulse {
+      animation: logo-pulse 1.2s ease-in-out infinite;
+      transform-origin: center; /* opcional, para SVG */
+    }
+
+    /* =============================
+     HALO ANIMADO DETRÁS
+     ============================= */
+
+  .halo-pulse {
+    position: absolute;
+    width: 120%;   /* más grande que el SVG */
+    height: 120%;
+    background: radial-gradient(
+      circle,
+      rgba(225, 6, 0, 0.55) 0%,
+      rgba(225, 6, 0, 0) 70%
+    );
+    filter: blur(32px);
+    border-radius: 50%;
+    z-index: -1;
+
+    animation: halo-pulse 1.3s ease-in-out infinite;
+    animation-delay: 0.15s; /* leve desfase para que no pulse igual que la cruz */
+  }
+
+  @keyframes halo-pulse {
+    0%, 100% {
+      transform: scale(1.1);
+      opacity: 0.6;
+    }
+    50% {
+      transform: scale(1.25);
+      opacity: 1;
+    }
+  }
   </style>
 
-
+  <script>
+    if (typeof window !== 'undefined') {
+      // Espera a que termine de cargar la página (imágenes, CSS, etc.)
+      window.addEventListener('load', () => {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+          preloader.classList.add('opacity-0', 'pointer-events-none');
+          // Lo removemos después del fade-out
+          setTimeout(() => preloader.remove(), 600);
+        }
+      });
+    }
+  </script>
 
 </html>

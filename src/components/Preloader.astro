@@ -1,0 +1,17 @@
+---
+import Cross from "./icons/Cross.astro"
+---
+
+<div
+  id="preloader"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-[#080B11] transition-opacity duration-500"
+  aria-hidden="true"
+>
+<div class="relative flex items-center justify-center">
+    <!-- HALO -->
+    <div class="halo-pulse"></div>
+
+    <!-- SVG cruz -->
+    <Cross class="w-24 h-24 animate-logo-pulse" />
+  </div>
+</div>
