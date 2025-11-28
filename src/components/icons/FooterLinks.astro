@@ -1,0 +1,36 @@
+---
+const enlaces = [
+  { label: "Inicio", url: "/" },
+  { label: "Trayectoria", url: "/trayectoria" },
+  // Cuando tengas nuevas páginas, simplemente agregás más objetos acá
+];
+
+const mail = "corpusprincipaalrock@gmail.com";
+---
+
+<div class="flex flex-col gap-3 items-center text-md mt-2">
+  
+
+  <!-- Sitemap -->
+  <nav class="flex gap-4 flex-wrap justify-center">
+    {
+      enlaces.map((item) => (
+        <a 
+          href={item.url}
+          class="text-light/60 hover:text-light transition-colors"
+        >
+          {item.label}
+        </a>
+      ))
+    }
+  </nav>
+
+   <!-- Mail -->
+   <a 
+   href={`mailto:${mail}`}
+   class="text-light/80 hover:text-primary transition-colors"
+ >
+   {mail}
+ </a>
+
+</div>

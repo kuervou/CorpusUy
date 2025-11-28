@@ -15,16 +15,25 @@ if (variant === "Discreto") {
   variantClasses = "bg-black text-white";
 } else if (variant === "claro") {
   variantClasses = "bg-white text-black border border-black";
-} else if (variant === "social") {
+} else if (variant === "accent") {
   variantClasses = "border-2 border-accent text-accent bg-transparent";
+} else if (variant === "dark") {
+  variantClasses = "border-2 border-dark text-dark bg-transparent"
+} else if (variant === "primary") {
+  variantClasses = "border-2 border-primary text-primary bg-transparent"
 }
+
 
 const finalClass = `${baseClasses} ${variantClasses} ${customClass}`;
 ---
 
 <a href={href} class={finalClass}>
-  {variant === "social" && (
-    <span class="absolute inset-0 bg-primary/15 opacity-0 group-hover:opacity-30 rounded-full blur-lg transition-opacity duration-300"></span>
+  {variant === "primary" && (
+    <span class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-30 rounded-full blur-lg transition-opacity duration-300"></span>
+  )}
+
+  {variant === "accent" && (
+  <span class="absolute inset-0 bg-accent/50 opacity-0 group-hover:opacity-30 rounded-full blur-lg transition-opacity duration-300"></span>
   )}
 
   <span class="relative z-10 font-medium tracking-wide">
