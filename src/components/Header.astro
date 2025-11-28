@@ -4,18 +4,61 @@ import MainButton from './MainButton.astro'
 import SocialMedia from './SocialMedia.astro'
 ---
 
-<header class="absolute z-20 w-full " >
-        <div class="bg-secondary bg-opacity-40 flex flex-row items-center py-4 px-4 justify-center sm:justify-between ">
-            <a href="/">
-                <LogoHeader class="h-12 w-fit" />
-            </a>
-            <div class="hidden sm:flex">
-              <SocialMedia class="hidden sm:flex" />
-            </div>
-            
-              
-           
-        </div>
-        
-        
+<header class="sm:fixed sm:top-0 sm:left-0 z-20 w-full absolute z-20">
+  <div class="bg-secondary bg-opacity-40 backdrop-blur-sm px-6 py-4">
+    {/* MOBILE: solo logo centrado */}
+    <div class="flex sm:hidden justify-center">
+      <a href="/">
+        <LogoHeader class="h-12 w-fit" />
+      </a>
+    </div>
+
+    {/* DESKTOP: logo izq / nav centro / redes der */}
+    <div class="hidden sm:grid sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:items-center">
+      {/* Izquierda: logo */}
+      <a href="/" class="flex items-center">
+        <LogoHeader class="h-12 w-fit" />
+      </a>
+
+      {/* Centro: Trayectoria + Contáctanos */}
+      <nav class="flex justify-center items-center gap-4 ">
+        <a
+          href="/trayectoria"
+          class="relative group text-[0.8rem] tracking-[0.28em] uppercase px-4 py-2
+                transition-all duration-300 overflow-visible"
+        >
+          <span
+            class="absolute inset-0 rounded-full bg-red-600/30 blur-md opacity-0
+                  transition-opacity duration-300 -z-10 group-hover:opacity-100"
+          ></span>
+
+          <span class="relative z-10">Trayectoria</span>
+        </a>
+
+
+
+        <a
+          href="mailto:corpusprincipaalrock@gmail.com"
+          class="relative group text-[0.8rem] tracking-[0.28em] uppercase px-4 py-2
+                transition-all duration-300 overflow-visible"
+        >
+          <span
+            class="absolute inset-0 rounded-full bg-white/20 blur-md opacity-0
+                  transition-opacity duration-300 -z-10 group-hover:opacity-100"
+          ></span>
+
+          <span class="relative z-10">Contáctanos</span>
+        </a>
+
+
+      </nav>
+
+      {/* Derecha: redes */}
+      <div class="flex justify-end">
+        <SocialMedia />
+      </div>
+    </div>
+  </div>
 </header>
+
+
