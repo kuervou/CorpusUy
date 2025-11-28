@@ -49,6 +49,7 @@ export default {
 		'3xl': '1.953rem',
 		'4xl': '2.441rem',
 		'5xl': '3.052rem',
+		'5xxl': '3.5rem',
 		'6xl': '4.3rem',
 		'7xl': '6rem',
 		'9xl': '9rem',
