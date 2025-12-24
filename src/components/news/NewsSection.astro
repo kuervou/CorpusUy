@@ -1,0 +1,41 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import NewsCarousel from "./NewsCarousel.astro";
+
+const all: CollectionEntry<"news">[] = await getCollection("news");
+
+const items = all
+  .sort((a, b) => {
+    const fa = a.data.featured ? 1 : 0;
+    const fb = b.data.featured ? 1 : 0;
+    if (fa !== fb) return fb - fa;
+    return b.data.date.getTime() - a.data.date.getTime();
+  })
+  .slice(0, 8);
+
+const showAllLink = items.length > 1; // 👈 solo si hay más de 1
+---
+
+<section class="w-full px-4 sm:px-10 lg:px-20 py-12">
+  <div class="mb-6 flex items-end justify-center gap-6">
+    <div class="flex flex-col items-center justify-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-light tracking-tight">
+        NOVEDADES
+      </h2>
+      <p class="mt-2 text-zinc-300 max-w-2xl">
+        Lo último del ritual: shows, lanzamientos y movimiento de CORPUS.
+      </p>
+    </div>
+
+    {showAllLink && (
+      <a
+        href="/novedades/"
+        class="text-sm text-zinc-200 hover:text-light underline underline-offset-4"
+      >
+        Ver todas
+      </a>
+    )}
+  </div>
+
+  <NewsCarousel items={items} />
+</section>

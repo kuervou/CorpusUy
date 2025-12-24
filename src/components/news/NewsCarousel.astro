@@ -1,0 +1,104 @@
+---
+import type { CollectionEntry } from "astro:content";
+import NewsCard from "./NewsCard.astro";
+
+type Props = {
+  items: CollectionEntry<"news">[];
+};
+
+const { items } = Astro.props as Props;
+const hasMultiple = items.length > 1;
+
+function slugOf(entry: CollectionEntry<"news">) {
+  return `/novedades/${entry.slug}/`;
+}
+---
+
+<section class="relative">
+
+  <!-- Header del carrusel: flechas + ver todas SOLO si hay más de 1 -->
+  {hasMultiple && (
+    <div class="flex items-center justify-between mb-3">
+      <div class="flex gap-2">
+        <button
+          type="button"
+          class="px-3 py-2 rounded-xl bg-zinc-900/70 ring-1 ring-white/10 hover:ring-white/20 text-light text-sm"
+          aria-label="Anterior"
+          data-carousel-prev
+        >
+          ←
+        </button>
+        <button
+          type="button"
+          class="px-3 py-2 rounded-xl bg-zinc-900/70 ring-1 ring-white/10 hover:ring-white/20 text-light text-sm"
+          aria-label="Siguiente"
+          data-carousel-next
+        >
+          →
+        </button>
+      </div>
+
+      <a
+        href="/novedades/"
+        class="text-sm text-zinc-300 hover:text-light underline underline-offset-4"
+      >
+        Ver todas
+      </a>
+    </div>
+  )}
+
+  <!-- Track -->
+  <div
+    class={hasMultiple
+      ? "carousel flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2"
+      : "flex justify-center"}
+    data-carousel-track
+  >
+    {items.map((entry) => (
+      <div
+        class={hasMultiple
+          ? "min-w-[280px] sm:min-w-[340px] md:min-w-[380px] snap-start"
+          : "w-full max-w-[900px]"}
+      >
+        <NewsCard entry={entry} href={slugOf(entry)} />
+      </div>
+    ))}
+  </div>
+
+</section>
+
+{hasMultiple && (
+  <script>
+    const root = document.currentScript?.closest("section");
+    if (!root) return;
+
+    const track = root.querySelector("[data-carousel-track]");
+    const prev = root.querySelector("[data-carousel-prev]");
+    const next = root.querySelector("[data-carousel-next]");
+
+    const scrollByCard = () => {
+      const firstCard = track?.querySelector("div");
+      if (!firstCard || !track) return 320;
+      const styles = getComputedStyle(track);
+      const gap = parseFloat(styles.columnGap || styles.gap || "16");
+      return firstCard.getBoundingClientRect().width + gap;
+    };
+
+    prev?.addEventListener("click", () => {
+      track?.scrollBy({ left: -scrollByCard(), behavior: "smooth" });
+    });
+
+    next?.addEventListener("click", () => {
+      track?.scrollBy({ left: scrollByCard(), behavior: "smooth" });
+    });
+  </script>
+)}
+
+<style>
+  .carousel::-webkit-scrollbar {
+    height: 10px;
+  }
+  .carousel::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+  }
+</style>
