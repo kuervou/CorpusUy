@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="404 — Página no encontrada | CORPUS"
+  description="La página que estás buscando no existe o fue movida."
+  canonical="https://corpus.uy/404"
+>
+  <section class="min-h-screen flex items-center justify-center bg-gradient-to-b from-black via-zinc-900 to-[#E10600]">
+    <div class="text-center px-6">
+        <img
+            src="/logo.webp"
+            alt="CORPUS"
+            class="mx-auto mt-10 w-24 opacity-70"
+            />
+
+      <h1 class="text-6xl sm:text-7xl font-extrabold text-light tracking-tight">
+        404
+      </h1>
+
+      <p class="mt-4 text-xl text-zinc-300">
+        Ups! Algo salió mal
+      </p>
+
+      <p class="mt-2 text-zinc-400 max-w-md mx-auto">
+        La página que buscás fue movida, eliminada o nunca formó parte de corpus.
+      </p>
+
+      <a
+        href="/"
+        class="inline-block mt-8 px-6 py-3 rounded-xl bg-[#E10600] text-light font-semibold hover:bg-red-700 transition"
+      >
+        Volver al inicio
+      </a>
+    </div>
+  </section>
+</Layout>

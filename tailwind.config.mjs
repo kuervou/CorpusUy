@@ -1,3 +1,5 @@
+import typography from '@tailwindcss/typography';
+
 /** @type {import('tailwindcss').Config} */
 
 export default {
@@ -57,6 +59,6 @@ export default {
 		'12xl': '12rem',
 	  },
 	},
-	plugins: [],
+	plugins: [typography],
   };
   
