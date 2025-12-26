@@ -1,6 +1,6 @@
 ---
 title: "El ProgreRock 8 ofició de altar para el ritual de CORPUS"
-date: 2025-12-14
+date: 2025-12-13
 excerpt: "El regreso de CORPUS a los escenarios en Progreso, Canelones, en una noche de soñada."
 cover: "./progre.webp"
 coverAlt: "CORPUS en vivo en ProgreRock 8"
