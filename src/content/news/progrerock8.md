@@ -14,6 +14,11 @@ tags: ["corpus", "shows", "progreso"]
 
 El pasado **sábado 13 de diciembre de 2025**, tuvo lugar en la **Plaza Artigas de Progreso, Canelones, Uruguay**, la octava edición del **ProgreRock**.
 
+<figure>
+  <img src="/news/progre-2.webp" alt="CORPUS en ProgreRock 8" loading="lazy" />
+  <figcaption>CORPUS en vivo durante ProgreRock 8.</figcaption>
+</figure>
+
 ### ProgreRock, un festival icónico para la ciudad
 
 El **ProgreRock** es un evento de rock realizado en Progreso que, a lo largo del tiempo, se consolidó como un espacio de referencia para la **escena musical independiente** y las **bandas del interior del país**. Nacido con el objetivo de promover la música en vivo y el encuentro cultural, el festival ha reunido a múltiples proyectos del rock nacional en un mismo escenario, funcionando como plataforma de difusión y circulación artística. Su regreso el 13 de diciembre marcó la reactivación de un **evento histórico** tanto para la comunidad local como para la escena rockera regional.
@@ -29,6 +34,11 @@ El público acompañó de forma concurrida y receptiva, con una notable diversid
 ---
 
 ### El retorno tras seis años en las sombras
+
+<figure>
+  <img src="/news/progre-3.webp" alt="Otra toma del ritual" loading="lazy" />
+  <figcaption>Otra postal de la noche.</figcaption>
+</figure>
 
 Para **CORPUS**, este toque significó la **vuelta a los escenarios tras una larga ausencia**. Se presentó un show breve pero intenso, muy pulido y con claras intenciones de mover las fibras de los espectadores. La energía y la potencia de la banda se hicieron sentir desde el primer momento, cuando comenzó a sonar el riff de **Dioses Mortales**. Luego, varias cabezas se agitaron al ritmo de **Yo sé quién soy**, versión corpusculosa del tema de la legendaria banda uruguaya **La Trampa**.
 

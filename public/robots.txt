@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://corpus.uy/sitemap-index.xml

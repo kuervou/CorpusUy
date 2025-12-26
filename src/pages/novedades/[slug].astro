@@ -21,9 +21,35 @@ const prettyDate = new Intl.DateTimeFormat("es-UY", {
 }).format(date);
 
 const { Content } = await entry.render();
+
+const canonical = `/novedades/${entry.slug}/`
+
+const baseUrl = "https://corpus.uy";
+const url = `${baseUrl}/novedades/${entry.slug}/`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": title,
+  "description": entry.data.excerpt,
+  "datePublished": entry.data.date.toISOString(),
+  "dateModified": entry.data.date.toISOString(),
+  "image": [`${baseUrl}${entry.data.cover?.src ?? ""}`], // si cover es asset
+  "author": [{ "@type": "Organization", "name": "CORPUS" }],
+  "publisher": {
+    "@type": "Organization",
+    "name": "CORPUS",
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${baseUrl}/logo.webp`
+    }
+  },
+  "mainEntityOfPage": url
+};
+
 ---
 
-<Layout title={`${title} | Corpus UY`} description="Enterate de todas las novedades de la banda más pujante del oeste de Canelones" canonical="">
+<Layout title={`${title} | Corpus UY`} description="Enterate de todas las novedades de la banda más pujante del oeste de Canelones" canonical={canonical}>
 
   <!-- Wrapper con padding-top para que no quede bajo el header -->
   <section class="min-h-screen bg-gradient-to-b
@@ -95,4 +121,9 @@ const { Content } = await entry.render();
     </article>
 
   </section>
+
+  <script type="application/ld+json">
+    {JSON.stringify(jsonLd)}
+  </script>
+  
 </Layout>
