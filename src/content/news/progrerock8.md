@@ -1,5 +1,5 @@
 ---
-title: "El ProgreRock 8 ofició de altar para el ritual de CORPUS"
+title: "EL REGRESO DE CORPUS A LOS ESCENARIOS"
 date: 2025-12-13
 excerpt: "El regreso de CORPUS a los escenarios en Progreso, Canelones, en una noche de soñada."
 cover: "./progre.webp"
@@ -8,7 +8,6 @@ featured: true
 tags: ["corpus", "shows", "progreso"]
 ---
 
-## EL REGRESO DE CORPUS A LOS ESCENARIOS
 
 ### El ProgreRock 8 efectuó como altar para el ritual de CORPUS
 
