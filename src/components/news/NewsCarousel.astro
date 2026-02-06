@@ -67,30 +67,35 @@ function slugOf(entry: CollectionEntry<"news">) {
 
 </section>
 
+
 {hasMultiple && (
   <script>
-    const root = document.currentScript?.closest("section");
-    if (!root) return;
+    function init() {
+      const root = document.currentScript?.closest("section");
+      if (!root) return;
 
-    const track = root.querySelector("[data-carousel-track]");
-    const prev = root.querySelector("[data-carousel-prev]");
-    const next = root.querySelector("[data-carousel-next]");
+      const track = root.querySelector("[data-carousel-track]");
+      const prev = root.querySelector("[data-carousel-prev]");
+      const next = root.querySelector("[data-carousel-next]");
 
-    const scrollByCard = () => {
-      const firstCard = track?.querySelector("div");
-      if (!firstCard || !track) return 320;
-      const styles = getComputedStyle(track);
-      const gap = parseFloat(styles.columnGap || styles.gap || "16");
-      return firstCard.getBoundingClientRect().width + gap;
-    };
+      const scrollByCard = () => {
+        const firstCard = track?.querySelector("div");
+        if (!firstCard || !track) return 320;
+        const styles = getComputedStyle(track);
+        const gap = parseFloat(styles.columnGap || styles.gap || "16");
+        return firstCard.getBoundingClientRect().width + gap;
+      };
 
-    prev?.addEventListener("click", () => {
-      track?.scrollBy({ left: -scrollByCard(), behavior: "smooth" });
-    });
+      prev?.addEventListener("click", () => {
+        track?.scrollBy({ left: -scrollByCard(), behavior: "smooth" });
+      });
 
-    next?.addEventListener("click", () => {
-      track?.scrollBy({ left: scrollByCard(), behavior: "smooth" });
-    });
+      next?.addEventListener("click", () => {
+        track?.scrollBy({ left: scrollByCard(), behavior: "smooth" });
+      });
+    }
+
+    init();
   </script>
 )}
 
