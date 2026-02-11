@@ -20,7 +20,10 @@ const structuredData = {
   "image": "https://corpus.uy/images/Hero-bg.webp",
   "genre": "Rock alternativo",
   "foundingDate": "2014-11-28",
-  "foundingLocation": "Los Cerrillos, Uruguay",
+  "foundingLocation": {
+  "@type": "Place",
+  "name": "Los Cerrillos, Canelones, Uruguay"
+},
   "sameAs": [
     "https://www.instagram.com/corpus.uy/",
     "https://www.youtube.com/@Corpusuy",
@@ -57,7 +60,7 @@ const structuredData = {
   
     <link rel="icon" type="image/webp" href="/images/Cruz.webp" />
 
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
     
   </head>
 
